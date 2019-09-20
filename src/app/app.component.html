@@ -1,0 +1,55 @@
+<div class="container">
+  <p class="heading text-center">Manage
+    <span class="font-weight-bold">Campaigns</span>
+  </p>
+  <div class="w-100">
+    <ul class="nav nav-pills nav-fill mr-auto">
+      <li class="nav-item active" (click)="setData('UPCOMING')" >
+        <a class="nav-link" id="UPCOMING" >UPCOMING CAMPAIGNS</a>
+      </li>
+      <li class="nav-item" (click)="setData('LIVE')">
+        <a class="nav-link" id="LIVE">LIVE CAMPAIGNS</a>
+      </li>
+      <li class="nav-item" (click)="setData('PAST')">
+        <a class="nav-link" id="PAST">PAST CAMPAIGNS</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">DATE</th>
+            <th scope="col">CAMPAIGNS</th>
+            <th scope="col">VIEW</th>
+            <th scope="col">ACTIONS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let data of currentTabData" (click)="openModal(data)">
+            <td>{{data.date | date:'yyyy-mm-dd'}}<br/>{{returnDateDiffernce(data.date)}}</td>
+            <td>{{data.campaign}}
+              <br/>{{data.location}}
+            </td>
+            <td (click)="openModal(data)"> 
+              <span class="view">
+                <i class="fa fa-usd" aria-hidden="true"></i>
+                <i class="fa fa-plus" aria-hidden="true"></i>
+              </span>
+            </td>
+            <td class="actions">
+              <i class="fa fa-file-text-o" aria-hidden="true"></i>
+              <i class="fa fa-signal" aria-hidden="true"></i>
+              
+              <i class="fa fa-calendar" aria-hidden="true" (click)="openDatePicker(data.id)">
+                  <input type="date" (input)="modifyDate($event,data)"  value={{data.date}} style="margin-left: 20px" id="{{data.id}}">
+              </i>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </table>
+  </div>
+</div>

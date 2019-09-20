@@ -1,0 +1,35 @@
+
+.nav-link{
+    font-size: 18px;
+    cursor: pointer;
+    background-color: lawngreen;
+    margin: 20px 5px
+}
+
+.heading{
+    font-size: 35px;
+    margin-top: 50px;
+}
+
+.actions i + i {
+    padding-left: 3em;
+ }
+
+ .view{
+     width: auto;
+     border-radius: 50%;
+     padding: 5px;
+     background-color: blue;
+     color: white;
+ }
+
+ a:not([href]):not([tabindex]){
+    color: white;
+ }
+
+ .nav-pills .nav-link.active, .nav-pills .show>.nav-link{
+    background: white;
+    color: green;
+    border: 2px solid green;
+
+ }
